@@ -5,8 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaGooglePlusG } from "react-icons/fa";
 
-const page = ({ params }) => {
-  const socials = [<FaFacebookF />, <FaTwitter />, <FaGooglePlusG />];
+const Page = ({ params }) => {
+  const socials = [
+    { id: 1, icon: <FaFacebookF /> },
+    { id: 2, icon: <FaTwitter /> },
+    { id: 3, icon: <FaGooglePlusG /> },
+  ];
   const [data, setData] = useState(null);
   const fetchBlogData = () => {
     for (let i = 0; i < blog_data.length; i++) {
@@ -20,7 +24,7 @@ const page = ({ params }) => {
 
   useEffect(() => {
     fetchBlogData();
-  }, []);
+  });
   return data ? (
     <>
       <div className="bg-gray-200 p-5 md:px-12 lg:px-28">
@@ -102,13 +106,13 @@ const page = ({ params }) => {
             Share this article on Social Media.
           </p>
           <div className="flex text-black gap-2">
-            {socials.map((social, index) => {
+            {socials.map((social) => {
               return (
                 <div
-                  key={index}
+                  key={social.id}
                   className="bg-white p-2 rounded-full text-md cursor-pointer shadow-md flex justify-center items-center hover:bg-black hover:text-white duration-300"
                 >
-                  <span className="text-xl">{social}</span>
+                  <span className="text-xl">{social.icon}</span>
                 </div>
               );
             })}
@@ -121,4 +125,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;
