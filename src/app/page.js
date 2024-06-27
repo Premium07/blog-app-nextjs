@@ -1,7 +1,7 @@
 "use client";
 // import BlogItems from "@/components/blog-items/BlogItems";
 import BlogList from "@/components/blog-list/BlogList";
-// import Footer from "@/components/footer/Footer";
+import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <main className="">
       <Header />
      <BlogList/>
-     {/* <Footer/> */}
+     <Footer/>
     </main>
   );
 }
